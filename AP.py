@@ -102,8 +102,7 @@ def make_comment(mark_num):
     return comment
 
 # Define a idler https://gist.github.com/jexhson/3496039
-# This is the threading object that does all the waiting on
-# the event
+# This is the threading object that does all the waiting on the event
 class Idler(object):
     def __init__(self, conn):
         self.thread = Thread(target=self.idle)
