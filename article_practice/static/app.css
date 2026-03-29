@@ -1,0 +1,339 @@
+:root {
+  --paper: #f7f1e3;
+  --paper-strong: #efe5cb;
+  --ink: #1f1a17;
+  --muted: #64584d;
+  --accent: #9f3d2f;
+  --accent-soft: rgba(159, 61, 47, 0.12);
+  --success: #2f6b4f;
+  --success-soft: rgba(47, 107, 79, 0.12);
+  --danger: #8a2d2d;
+  --danger-soft: rgba(138, 45, 45, 0.12);
+  --line: rgba(31, 26, 23, 0.14);
+  --shadow: 0 18px 40px rgba(31, 26, 23, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(159, 61, 47, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(47, 107, 79, 0.12), transparent 24%),
+    linear-gradient(180deg, #f3ecdb 0%, #ede3ca 100%);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 20px 72px;
+}
+
+.hero {
+  margin-bottom: 28px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 250, 240, 0.72);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  animation: rise 420ms ease-out;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1,
+.panel h2,
+.original-panel h3 {
+  margin: 0;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  line-height: 1.08;
+}
+
+.hero h1 {
+  max-width: 10ch;
+  font-size: clamp(2.4rem, 6vw, 4.7rem);
+  text-transform: lowercase;
+}
+
+.hero-copy,
+.panel-copy,
+.field-label,
+.mistake-copy,
+.original-text {
+  color: var(--muted);
+}
+
+.hero-copy {
+  max-width: 56ch;
+  margin: 16px 0 0;
+  font-size: 1.04rem;
+  line-height: 1.6;
+}
+
+.layout {
+  display: grid;
+  gap: 18px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 22px;
+  background: rgba(255, 252, 246, 0.8);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.panel-copy {
+  margin: 6px 0 0;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink);
+  line-height: 1.6;
+  resize: vertical;
+}
+
+textarea:focus,
+.blank-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.action-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.primary-button,
+.ghost-button {
+  border-radius: 999px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+
+.primary-button {
+  background: var(--accent);
+  color: #fff9f4;
+}
+
+.ghost-button {
+  background: rgba(255, 255, 255, 0.42);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.primary-button:hover,
+.ghost-button:hover {
+  transform: translateY(-1px);
+}
+
+.exercise-surface {
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(247, 240, 224, 0.94));
+  border: 1px solid rgba(31, 26, 23, 0.08);
+  line-height: 1.8;
+  font-size: 1.08rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.exercise-paragraph {
+  margin: 0;
+}
+
+.exercise-paragraph + .exercise-paragraph {
+  margin-top: 1.2em;
+}
+
+.blank-shell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+.blank-input {
+  width: 4.3rem;
+  padding: 6px 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(31, 26, 23, 0.18);
+  text-align: center;
+  text-transform: lowercase;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.blank-shell.is-correct .blank-input {
+  border-color: var(--success);
+  background: var(--success-soft);
+}
+
+.blank-shell.is-incorrect .blank-input {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.blank-answer {
+  display: none;
+  margin-left: 6px;
+  font-size: 0.88rem;
+  color: var(--danger);
+}
+
+.blank-shell.is-incorrect .blank-answer {
+  display: inline;
+}
+
+.score-card {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-bottom: 16px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(159, 61, 47, 0.12), rgba(47, 107, 79, 0.12));
+}
+
+.score-number {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 700;
+}
+
+.mistake-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.mistake-item {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.mistake-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.mistake-copy {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.original-panel {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.original-text {
+  margin: 10px 0 0;
+  white-space: pre-wrap;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.error-text {
+  min-height: 1.4rem;
+  margin: 12px 0 0;
+  color: var(--danger);
+}
+
+.hidden {
+  display: none;
+}
+
+.reveal {
+  animation: rise 460ms ease-out;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    padding: 24px 14px 56px;
+  }
+
+  .panel,
+  .hero {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .panel-header {
+    flex-direction: column;
+  }
+
+  .action-row {
+    flex-direction: column;
+  }
+
+  .primary-button,
+  .ghost-button {
+    width: 100%;
+  }
+
+  .blank-shell {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .reveal,
+  .primary-button,
+  .ghost-button {
+    animation: none;
+    transition: none;
+  }
+}

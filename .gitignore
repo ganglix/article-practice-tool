@@ -1,1 +1,4 @@
 AP_debug.ipynb
+.idea/
+__pycache__/
+tests/__pycache__/
